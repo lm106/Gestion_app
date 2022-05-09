@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-list.component.css']
 })
 export class CreateListComponent implements OnInit {
-
+  titulo='';
+  des='';
+  Encargado='';
   constructor() { }
 
   ngOnInit(): void {
   }
+  create_task(title:string, desc:string, encargado:string, event:Event){
 
+  }
 }

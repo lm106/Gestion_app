@@ -1,1 +1,14 @@
-<p>lists works!</p>
+<div *ngIf="flag">
+    <h1>Crear una nueva tarea</h1>
+    <a routerLink="/" (click)="setflag()">Volver</a>
+</div>
+<router-outlet></router-outlet>
+<div *ngIf="!flag">
+    <h1>Bienvenido a Gestion_app</h1>
+    <a routerLink="/create_list" (click)="setflag()">Crear una nueva tarea</a>
+    <div *ngFor="let item of [1,2,3]">item</div>
+</div>
+
+
+
+
