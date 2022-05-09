@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "gestion-app-d5d94": {
+      "hosting": {
+        "Gestion_app": [
+          "gestion-app-d5d94"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "gestion-app-d5d94"
+  }
+}
