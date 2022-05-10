@@ -1,7 +1,7 @@
 <!-- <div>{{ message }} </div> -->
-<form (ngSubmit)="create_task(titulo.value, des.value, encargado.value, $event)">
+<form [formGroup]='form' (ngSubmit)="create_task(titulo.value, des.value, encargado.value, $event)">
     <label>Titulo:<br>
-        <input type="text" #titulo id="nombre" placeholder="Introduce un titulo a la tarea" required/>
+        <input type="text" #titulo formControlName="titulo" id="nombre" placeholder="Introduce un titulo a la tarea" required/>
     </label><br>
     <!-- <div class="error">
         <span *ngIf="">
@@ -12,7 +12,7 @@
         <input type="text" #des id="des" placeholder="Introduce una breve descripcion"><br>
     </label><br>
     <label>Encargado:<br>
-        <input type="text" #encargado id="encargado" placeholder="¿Quién se encargará hacer esta tarea?" required/>
+        <input type="text" #encargado id="encargado" formControlName="encargado" placeholder="¿Quién se encargará hacer esta tarea?" required/>
     </label>
     <!-- <div class="error">
         <span *ngIf="">

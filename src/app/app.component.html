@@ -1,1 +1,11 @@
-<app-lists></app-lists>
+<div *ngIf="!setflag(); else elseBlock">
+    <h1>Crear una nueva tarea</h1>
+    <a routerLink="/" (click)="setflag()">Volver</a>
+    <app-create-list></app-create-list>
+</div>
+<ng-template #elseBlock>
+<h1>Bienvenido a Gestion_app</h1>
+<a routerLink="/create_list" (click)="setflag()">Crear una nueva tarea</a>
+    <app-lists></app-lists>
+</ng-template>
+<!-- {{flag}} -->

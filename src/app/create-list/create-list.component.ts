@@ -16,10 +16,9 @@ export class CreateListComponent implements OnInit {
   constructor(private FBuilder: FormBuilder, 
     private myservice: DataService, private route: Router) { 
     this.form = this.FBuilder.group({
-      nombre: ['', Validators.required],
-      apellido: ['', Validators.required],
-      documento: ['', Validators.required],
-      salario: ['', Validators.required]
+      titulo: ['', Validators.required],
+      des: ['', Validators.required],
+      encargado: ['', Validators.required]
     });
   }
 
@@ -28,7 +27,9 @@ export class CreateListComponent implements OnInit {
   create_task(title:string, desc:string, encargado:string, event:Event){
     const task={title: title, descripcion: desc, encargado:encargado};
     this.myservice.addTask(task).then(() => {
-      this.route.navigate(['/lists']);
+
+      this.route.navigate(['/']);
+      
     }).catch(error => {
       console.log(error);
     }) 

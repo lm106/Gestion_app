@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-lists',
   templateUrl: './lists.component.html',
@@ -7,18 +7,19 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class ListsComponent implements OnInit {
   flag=false;
-  constructor(private router: ActivatedRoute,) { 
+  constructor(private route: Router,) { 
     
   }
   
 
   ngOnInit(): void {
   }
-  setflag(){
-    this.flag=(document.location.pathname =='/')? true: false;
-    // document.location.href='/create_list';
-    // console.log(document.location.href);
-    // return this.flag;
-  }
+  // setflag(){
+  //   this.flag=false;
+  //   console.log(document.location.href);
+  //   if(document.location.pathname =='/') this.flag=false;
+  //   // this.route.navigate(['/create_list']);
+  //   return this.flag;
+  // }
 
 }

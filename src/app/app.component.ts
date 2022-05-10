@@ -7,5 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Gestion_app';
-  
+
+  setflag(){
+    // console.log(document.location.href);
+    if(document.location.pathname =='/') return true;
+    // this.route.navigate(['/create_list']);
+    return false;
+  }
 }
