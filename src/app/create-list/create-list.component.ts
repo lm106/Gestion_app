@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DataService } from '../data.service';
 
@@ -12,28 +12,29 @@ export class CreateListComponent implements OnInit {
   titulo='';
   des='';
   Encargado='';
-  form:FormGroup;
+  // formulario:FormGroup;
   add=false;
+  formulario =  new FormGroup({
+    titulo: new FormControl('', [Validators.required]),
+    encargado: new FormControl('', [Validators.required])
+  });
   constructor(private FBuilder: FormBuilder, 
     private myservice: DataService, private route: Router) { 
-    this.form = this.FBuilder.group({
-      titulo: ['', Validators.required],
-      des: ['', Validators.required],
-      encargado: ['', Validators.required]
-    });
   }
 
   ngOnInit(): void {
   }
   create_task(title:string, desc:string, encargado:string, event:Event){
     const task={title: title, descripcion: desc, encargado:encargado};
-    this.myservice.addTask(task).then(() => {
+    if(!this.formulario.get('encargado')?.errors?.['required'] && !this.formulario.get('titulo')?.errors?.['required']){
+      this.myservice.addTask(task).then(() => {
 
-      // this.route.navigate(['/']);
-      this.add=true;
-      
-    }).catch(error => {
-      console.log(error);
-    }) 
+        // this.route.navigate(['/']);
+        this.add=true;
+        
+      }).catch(error => {
+        console.log(error);
+      }) 
+    }
   }
 }
