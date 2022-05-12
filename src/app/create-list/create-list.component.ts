@@ -13,6 +13,7 @@ export class CreateListComponent implements OnInit {
   des='';
   Encargado='';
   form:FormGroup;
+  add=false;
   constructor(private FBuilder: FormBuilder, 
     private myservice: DataService, private route: Router) { 
     this.form = this.FBuilder.group({
@@ -28,7 +29,8 @@ export class CreateListComponent implements OnInit {
     const task={title: title, descripcion: desc, encargado:encargado};
     this.myservice.addTask(task).then(() => {
 
-      this.route.navigate(['/']);
+      // this.route.navigate(['/']);
+      this.add=true;
       
     }).catch(error => {
       console.log(error);

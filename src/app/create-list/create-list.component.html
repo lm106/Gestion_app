@@ -1,5 +1,5 @@
 <!-- <div>{{ message }} </div> -->
-<form [formGroup]='form' (ngSubmit)="create_task(titulo.value, des.value, encargado.value, $event)">
+<form *ngIf="!add" [formGroup]='form' (ngSubmit)="create_task(titulo.value, des.value, encargado.value, $event)">
     <label>Titulo:<br>
         <input type="text" #titulo formControlName="titulo" id="nombre" placeholder="Introduce un titulo a la tarea" required/>
     </label><br>

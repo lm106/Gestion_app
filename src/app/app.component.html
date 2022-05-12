@@ -1,6 +1,6 @@
 <div *ngIf="!setflag(); else elseBlock">
     <h1>Crear una nueva tarea</h1>
-    <a routerLink="/" (click)="setflag()">Volver</a>
+    <a routerLink="/" (click)="setflag()">Ver todas tareas</a>
     <app-create-list></app-create-list>
 </div>
 <ng-template #elseBlock>
