@@ -22,4 +22,7 @@ export class DataService {
     return this.firestore.collection('task').doc(id).snapshotChanges();
 
   }
+  update(task:any, id:string): Promise <any>{
+    return this.firestore.collection('task').doc(id).update(task);
+  }
 }

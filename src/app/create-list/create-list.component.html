@@ -20,7 +20,8 @@
         </span>
     </div><br>
     <button class="enviar" type="submit">
-        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg><p class="sign">Crear</p>
+        <span *ngIf="!id; else update"><i class="bi bi-plus-lg"></i>Crear</span>
+        <ng-template #update><i class="bi bi-check2"></i>Actualizar</ng-template> 
     </button>
 </form>
 

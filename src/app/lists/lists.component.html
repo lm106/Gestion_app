@@ -12,7 +12,6 @@
                 <td *ngIf="task.descripcion !=''; else empty" >{{getdesc(task.descripcion)}}</td>
                 <ng-template #empty><td>---</td></ng-template>
                 <td>
-                    {{task.id}}
                     <a [routerLink]="['/edit/', task.id]" routerLinkActive="active">
                         <i class="bi bi-pencil-fill" style="color:blue"></i>
                     </a>
