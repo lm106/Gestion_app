@@ -16,7 +16,8 @@ export class CreateListComponent implements OnInit {
   add=false;
   formulario =  new FormGroup({
     titulo: new FormControl('', [Validators.required]),
-    encargado: new FormControl('', [Validators.required])
+    encargado: new FormControl('', [Validators.required]),
+    des: new FormControl('')
   });
   id:string | null;
   constructor(private FBuilder: FormBuilder, private myservice: DataService, 
@@ -35,10 +36,10 @@ export class CreateListComponent implements OnInit {
       this.myservice.getTask(this.id).subscribe(res =>{
         // console.log(res);
         this.formulario.setValue({
-        titulo: res.payload.data()['title'],
-        encargado: res.payload.data()['encargado'],
-      })
-        this.des=res.payload.data()['descripcion']
+          titulo: res.payload.data()['title'],
+          encargado: res.payload.data()['encargado'],
+          des: res.payload.data()['descripcion']
+        })
       });
     }
   }
