@@ -1,26 +1,26 @@
 <div class="alert alert-primary" *ngIf="message!=''">{{message}}</div>
 
-<form *ngIf="!add" [formGroup]='formulario' (ngSubmit)="create_task(titulo.value, des.value, encargado.value, $event)">
-    <label>Titulo:<br>
-        <input type="text" #titulo formControlName="titulo" id="nombre" placeholder="Introduce un titulo a la tarea" required/>
+<form id="formulario" *ngIf="!add" [formGroup]='formulario' (ngSubmit)="create_task(titulo.value, des.value, encargado.value, $event)">
+    <label>Titulo:
+        <input  class="form-control" type="text" #titulo formControlName="titulo" id="nombre" placeholder="Introduce un titulo a la tarea" required/>
     </label>
     <div *ngIf="this.formulario.get('titulo')?.errors?.['required']" class="error">
         <span>
         (El titulo no puede quedar vacío)
         </span>          
     </div><br>
-    <label>Descripción de la tarea:<br>
-        <input type="text" #des formControlName="des" id="des" placeholder="Introduce una breve descripcion"><br>
+    <label class="col-form-label">Descripción de la tarea:
+        <textarea  class="form-control" id="exampleFormControlTextarea1" rows="3" type="text" #des formControlName="des">Introduce una breve descripcion</textarea>
     </label><br>
-    <label>Encargado:<br>
-        <input type="text" #encargado id="encargado" formControlName="encargado" placeholder="¿Quién se encargará hacer esta tarea?" required/>
+    <label>Encargado:
+        <input  class="form-control" stype="text" #encargado id="encargado" formControlName="encargado" placeholder="¿Quién se encargará hacer esta tarea?" required/>
     </label>
     <div *ngIf="this.formulario.get('encargado')?.errors?.['required']" class="error">
         <span>
         (No puede quedar vacío)
         </span>
     </div><br>
-    <button class="enviar" type="submit">
+    <button class="btn" id="edit_create" type="submit">
         <span *ngIf="!id; else update"><i class="bi bi-plus-lg"></i>Crear</span>
         <ng-template #update><i class="bi bi-check2"></i>Actualizar</ng-template> 
     </button>

@@ -1,0 +1,4 @@
+.btn_edit_delete:hover, :focus{
+    background-color:#b1d0fe;
+    border: solid #b1d0fe;
+}

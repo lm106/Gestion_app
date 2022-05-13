@@ -1,0 +1,21 @@
+#formulario{
+    margin: 0 auto;
+    width: 50%;
+}
+#formulario label{
+    display: block;
+    font-weight: bold;
+}
+#edit_create{
+    color:white; 
+    background: #69a3fa;
+    padding: 1% 5%;
+}
+i{
+    font-weight: bold;
+    margin-right: 10px;
+}
+.error{
+    color:#ce3535;
+    font-weight: bold;
+}

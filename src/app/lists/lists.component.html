@@ -1,24 +1,26 @@
 
 <div class="alert alert-primary" *ngIf="message!=''">{{message}}</div>
-<table style="border: 1px solid black">
-    <tbody>
+<table class="table table-striped">
+    <thead>
         <tr>
-            <th>Encargado</th>
-            <th>Titulo</th>
-            <th>Descripción</th>
-            <th>Opciones</th>
+            <th scope="col">Encargado</th>
+            <th scope="col">Titulo</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Opciones</th>
         </tr>
+    </thead>
+    <tbody>
         <tr *ngFor="let task of list_tasks">
-                <td>{{task.encargado}}</td>        
-                <td>{{task.title}}</td>
-                <td *ngIf="task.descripcion !=''; else empty" >{{getdesc(task.descripcion)}}</td>
+                <td scope="row">{{task.encargado}}</td>        
+                <td scope="row">{{task.title}}</td>
+                <td *ngIf="task.descripcion !=''; else empty"  scope="row">{{getdesc(task.descripcion)}}</td>
                 <ng-template #empty><td>---</td></ng-template>
-                <td>
-                    <a [routerLink]="['/edit/', task.id]" routerLinkActive="active">
-                        <i class="bi bi-pencil-fill" style="color:blue"></i>
+                <td scope="row">
+                    <a class="btn btn-outline-primary btn_edit_delete" [routerLink]="['/edit/', task.id]" routerLinkActive="active">
+                        <i class="bi bi-pencil-fill" style="color: #4180de"></i>
                     </a>
-                    <button (click)="delete(task.id)" class="dropdown-item" style="color:red;">
-                        <i class="bi bi-trash3-fill" style="color:red"></i>
+                    <button (click)="delete(task.id)" class="btn btn-outline-danger btn_edit_delete">
+                        <i class="bi bi-trash3-fill" style="color:#e74545"></i>
                     </button>
                 </td>
         </tr>
