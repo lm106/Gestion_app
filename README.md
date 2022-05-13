@@ -1,3 +1,10 @@
+# Gestión App
+Este proyecto consiste en gestionar las tareas que se deben realizar en una empresa. Utilizando la base de datos 
+firestore, bootstrap y angular se ha implementado este To-Do List. Todas las tareas tienen un título, una descripción y
+un/a encargado/a. Para crear o editar una tarea tenemos una validación que nos permite comprobar si el título y el/la encargado/a es vacío. En cuánto a la descripción es irrevelante que este vacío ya que ocasiones no es necesario, por este motivo, no tiene una validación que se muestre un mensaje. 
+Para esta aplicación se ha necesitado del enrutamiento y la navegación que nos ha permitido redirigir a otras páginas para crear o editar una tarea.
+
+
 # GestionApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.6.
