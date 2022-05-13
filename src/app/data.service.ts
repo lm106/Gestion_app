@@ -25,4 +25,7 @@ export class DataService {
   update(task:any, id:string): Promise <any>{
     return this.firestore.collection('task').doc(id).update(task);
   }
+  deleteTask(id:string){
+    return this.firestore.collection('task').doc(id).delete();
+  }
 }

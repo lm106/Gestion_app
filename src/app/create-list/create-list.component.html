@@ -1,10 +1,11 @@
-<!-- <div>{{ message }} </div> -->
+<div class="alert alert-primary" *ngIf="message!=''">{{message}}</div>
+
 <form *ngIf="!add" [formGroup]='formulario' (ngSubmit)="create_task(titulo.value, des.value, encargado.value, $event)">
     <label>Titulo:<br>
         <input type="text" #titulo formControlName="titulo" id="nombre" placeholder="Introduce un titulo a la tarea" required/>
-    </label><br>
-    <div class="error">
-        <span *ngIf="this.formulario.get('titulo')?.errors?.['required']">
+    </label>
+    <div *ngIf="this.formulario.get('titulo')?.errors?.['required']" class="error">
+        <span>
         (El titulo no puede quedar vacío)
         </span>          
     </div><br>
@@ -14,8 +15,8 @@
     <label>Encargado:<br>
         <input type="text" #encargado id="encargado" formControlName="encargado" placeholder="¿Quién se encargará hacer esta tarea?" required/>
     </label>
-    <div class="error">
-        <span *ngIf="this.formulario.get('encargado')?.errors?.['required']">
+    <div *ngIf="this.formulario.get('encargado')?.errors?.['required']" class="error">
+        <span>
         (No puede quedar vacío)
         </span>
     </div><br>

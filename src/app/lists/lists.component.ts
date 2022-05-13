@@ -10,6 +10,7 @@ import { DataService } from '../data.service';
 export class ListsComponent implements OnInit {
   flag=false;
   list_tasks: any[]=[];
+  message='';
   constructor(private route: Router,private myservice: DataService) { 
     
   }
@@ -35,5 +36,11 @@ export class ListsComponent implements OnInit {
     }else{
       return descripcion;
     }
+  }
+  delete(id:string){
+    this.message='';
+    this.myservice.deleteTask(id).then(() =>{
+      this.message="¡Se ha eliminado con éxito!";
+    })
   }
 }

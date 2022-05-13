@@ -20,6 +20,7 @@ export class CreateListComponent implements OnInit {
     des: new FormControl('')
   });
   id:string | null;
+  message='';
   constructor(private FBuilder: FormBuilder, private myservice: DataService, 
     private route: Router, private active: ActivatedRoute) { 
       this.id = active.snapshot.paramMap.get('id');
@@ -51,7 +52,7 @@ export class CreateListComponent implements OnInit {
 
           // this.route.navigate(['/']);
           this.add=true;
-          
+          this.message="¡Se ha creado la tarea"+ this.titulo + " con éxito!";
         }).catch(error => {
           console.log(error);
         }) 
@@ -65,7 +66,7 @@ export class CreateListComponent implements OnInit {
 
         // this.route.navigate(['/']);
         this.add=true;
-        
+        this.message="¡Se ha actualizado la tarea"+ this.titulo + "con éxito!";
       }).catch(error => {
         console.log(error);
       }) 
