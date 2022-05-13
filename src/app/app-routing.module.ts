@@ -6,6 +6,7 @@ import { CreateListComponent } from './create-list/create-list.component';
 const routes: Routes = [
   { path: 'lists', redirectTo:'', component: ListsComponent },
   { path: 'create_list', component: CreateListComponent},
+  { path: 'edit/:id', component: CreateListComponent}
 ];
 
 @NgModule({
