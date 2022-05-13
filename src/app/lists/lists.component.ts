@@ -27,7 +27,7 @@ export class ListsComponent implements OnInit {
       });
       
     });
-    console.log(this.list_tasks);
+    // console.log(this.list_tasks);
   }
   getdesc(descripcion:string){
     if(descripcion.length >100){ 

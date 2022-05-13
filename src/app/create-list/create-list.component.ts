@@ -18,11 +18,29 @@ export class CreateListComponent implements OnInit {
     titulo: new FormControl('', [Validators.required]),
     encargado: new FormControl('', [Validators.required])
   });
-  constructor(private FBuilder: FormBuilder, 
-    private myservice: DataService, private route: Router) { 
-  }
-
+  id:string | null;
+  constructor(private FBuilder: FormBuilder, private myservice: DataService, 
+    private route: Router, private active: ActivatedRoute) { 
+      this.id = active.snapshot.paramMap.get('id');
+    }
+    
   ngOnInit(): void {
+      this.getTask();
+  }
+  getTask(){
+    let ruta=window.location.pathname;
+    // console.log(this.id);
+    if(ruta.includes('/edit') && this.id != null){
+      console.log('estoy en editar');
+      this.myservice.getTask(this.id).subscribe(res =>{
+        // console.log(res);
+        this.formulario.setValue({
+        titulo: res.payload.data()['title'],
+        encargado: res.payload.data()['encargado'],
+      })
+        this.des=res.payload.data()['descripcion']
+      });
+    }
   }
   create_task(title:string, desc:string, encargado:string, event:Event){
     const task={title: title, descripcion: desc, encargado:encargado};

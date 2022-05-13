@@ -18,4 +18,8 @@ export class DataService {
   getTasks(): Observable<any>{
     return this.firestore.collection('task').snapshotChanges();
   }
+  getTask(id: string): Observable<any> {
+    return this.firestore.collection('task').doc(id).snapshotChanges();
+
+  }
 }
